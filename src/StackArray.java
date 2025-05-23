@@ -10,9 +10,14 @@ public class StackArray implements Stack{
         stack.add(0,item);
     }
     @Override
-    public Object pop() {
+    public Object pop() throws MyEmptyStackException{
+        if (thisIsEmpty()) {
+            throw new MyEmptyStackException("Stack is empty");
+        }
         return stack.remove(0);
+
     }
+
     @Override
     public void peek() {
         System.out.println("The top is "
